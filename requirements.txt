@@ -1,0 +1,21 @@
+The package requirements for this Python program are as follows:
+
+- requests
+- bs4 (BeautifulSoup)
+- nltk (nltk.sentiment.vader)
+- matplotlib
+- plotly
+- smtplib
+- email
+
+These packages can be installed using pip:
+
+```
+pip install requests
+pip install beautifulsoup4
+pip install nltk
+pip install matplotlib
+pip install plotly
+pip install smtplib
+pip install email
+```
