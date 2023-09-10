@@ -21,7 +21,8 @@ class WebScraper:
         soup = BeautifulSoup(response.text, 'html.parser')
         self.text_data = soup.get_text()
         self.image_data = soup.find_all('img')
-        self.structured_data = soup.find('script', type='application/ld+json').string
+        self.structured_data = soup.find(
+            'script', type='application/ld+json').string
 
 
 class SentimentAnalyzer:
@@ -74,7 +75,8 @@ class DataVisualizer:
         plt.plot(self.data)
         plt.show()
 
-        fig = go.Figure(data=[go.Scatter(x=range(len(self.data)), y=self.data)])
+        fig = go.Figure(
+            data=[go.Scatter(x=range(len(self.data)), y=self.data)])
         fig.show()
 
 
@@ -120,8 +122,10 @@ def main():
     # Sentiment Analysis
     sentiment_analyzer = SentimentAnalyzer()
 
-    industry_news_sentiment = sentiment_analyzer.perform_sentiment_analysis(industry_news_text)
-    market_reports_sentiment = sentiment_analyzer.perform_sentiment_analysis(market_reports_text)
+    industry_news_sentiment = sentiment_analyzer.perform_sentiment_analysis(
+        industry_news_text)
+    market_reports_sentiment = sentiment_analyzer.perform_sentiment_analysis(
+        market_reports_text)
 
     # Competitive Analysis
     competitor_analyzer = CompetitorAnalyzer(competitor_urls)
