@@ -1,15 +1,15 @@
-import requests
-from bs4 import BeautifulSoup
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-import matplotlib.pyplot as plt
-import plotly.graph_objects as go
-import smtplib
-from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import smtplib
+import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from bs4 import BeautifulSoup
+import requests
+Optimized Python script:
 
 
 class WebScraper:
-
     def __init__(self, url):
         self.url = url
         self.text_data = ""
@@ -26,7 +26,6 @@ class WebScraper:
 
 
 class SentimentAnalyzer:
-
     def __init__(self):
         self.sid = SentimentIntensityAnalyzer()
 
@@ -41,7 +40,6 @@ class SentimentAnalyzer:
 
 
 class CompetitorAnalyzer:
-
     def __init__(self, competitor_urls):
         self.competitor_urls = competitor_urls
         self.competitor_data = []
@@ -54,7 +52,6 @@ class CompetitorAnalyzer:
 
 
 class MarketAnalyzer:
-
     def __init__(self, data_sources):
         self.data_sources = data_sources
         self.historical_data = []
@@ -67,7 +64,6 @@ class MarketAnalyzer:
 
 
 class DataVisualizer:
-
     def __init__(self, data):
         self.data = data
 
@@ -81,7 +77,6 @@ class DataVisualizer:
 
 
 class EmailSender:
-
     def __init__(self, sender_email, password, receiver_email, report):
         self.sender_email = sender_email
         self.password = password
@@ -96,12 +91,11 @@ class EmailSender:
 
         msg.attach(MIMEText(self.report, 'plain'))
 
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
-        server.login(self.sender_email, self.password)
-        text = msg.as_string()
-        server.sendmail(self.sender_email, self.receiver_email, text)
-        server.quit()
+        with smtplib.SMTP('smtp.gmail.com', 587) as server:
+            server.starttls()
+            server.login(self.sender_email, self.password)
+            text = msg.as_string()
+            server.sendmail(self.sender_email, self.receiver_email, text)
 
 
 def main():
